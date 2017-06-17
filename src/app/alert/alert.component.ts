@@ -23,6 +23,7 @@ export class AlertComponent implements OnInit {
   private show: boolean;
   private message: string;
   private type: string;
+  private timeout: any;
 
   constructor(private alertService: AlertService) { }
 
@@ -33,7 +34,7 @@ export class AlertComponent implements OnInit {
         this.type = this.alertTypes.indexOf(alert.type) != -1 ? alert.type : this.defaultType;
         let time = (alert.time && alert.time > 0) ? alert.time : this.defaultTime;
         this.show = true;
-        setTimeout(() => { this.hideAlert()}, time)
+        this.timeout = setTimeout(() => { this.hideAlert()}, time);
       }
     })
   }
@@ -47,6 +48,7 @@ export class AlertComponent implements OnInit {
   resetAlert(): void {
     this.message = null;
     this.type = null;
+    clearTimeout(this.timeout);
   }
 
 }
