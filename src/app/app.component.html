@@ -1,18 +1,11 @@
 
-<h2>Alert Types: </h2>
+<h3>{{'hello_world' | translate}}</h3>
+<strong>{{'welcome_message' | translate}}</strong>
 <ul>
-  <li>
-    <h2><a href="#" (click)="showAlert('info')">Info Alert</a></h2>
-  </li>
-  <li>
-    <h2><a href="#" (click)="showAlert('warning')">Warning Alert</a></h2>
-  </li>
-  <li>
-    <h2><a href="#" (click)="showAlert('error')">Error Alert</a></h2>
-  </li>
-  <li>
-    <h2><a href="#" (click)="showAlert('success')">Success Alert</a></h2>
-  </li>
-</ul>
-<alert></alert>
+  <li><a [routerLink]="['']">Home</a></li>
+  <li><a [routerLink]="['/alert-demo']">Alert Demo</a></li>
+  <li><a [routerLink]="['/guard-demo']">Guard Demo</a></li>
 
+</ul>
+
+<router-outlet></router-outlet>

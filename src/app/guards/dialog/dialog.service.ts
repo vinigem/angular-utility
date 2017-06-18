@@ -22,10 +22,10 @@ export class DialogService {
   }
 
   public setConfirmation(value: boolean) {
-    if(value){
+    this.confirmation.next(value);
+    if(value && typeof this.targetComponent.cleanup === 'function'){
       this.targetComponent.cleanup();
     }
-    this.confirmation.next(value);
   }
   
 }

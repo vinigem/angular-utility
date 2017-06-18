@@ -1,3 +1,10 @@
-<p>
-  dialog works!
-</p>
+<div class="overlay" *ngIf="showDialog">
+    <div class="popup">
+        <strong>{{ message }}</strong>
+        <hr>
+      <div class="right">
+        <button class="button orange" (click)="onConfirm(false)">No</button>
+        <button class="button light-blue" (click)="onConfirm(true)">Yes</button>
+      </div>
+    </div>
+</div>
