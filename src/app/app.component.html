@@ -1,11 +1,18 @@
+<div class="topnav right" [ngClass]="{'responsive':open}">
+  <a [routerLink]="['/']">Angular Utility</a>
+  <a [routerLink]="['/alert-demo']">Alert Demo</a>
+  <a [routerLink]="['/guard-demo']">Guard Demo</a>
+  <div class="right">
+    <select [(ngModel)]="currentLang" (change)="changeLanguage()">
+      <option *ngFor="let lang of languages" [value]="lang.value">{{ lang.display }}</option>
+    </select>
+  </div>
+  <a href="javascript:void(0);" class="icon" (click)="open=!open">&#9776;</a>
+</div>
 
-<h3>{{'hello_world' | translate}}</h3>
-<strong>{{'welcome_message' | translate}}</strong>
-<ul>
-  <li><a [routerLink]="['']">Home</a></li>
-  <li><a [routerLink]="['/alert-demo']">Alert Demo</a></li>
-  <li><a [routerLink]="['/guard-demo']">Guard Demo</a></li>
+<div class="content">
+  <h3>{{'hello_world' | translate}}</h3>
+  <strong>{{'welcome_message' | translate}}</strong>
 
-</ul>
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>

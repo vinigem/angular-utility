@@ -9,6 +9,6 @@ export class AlertDemoComponent {
   constructor(private alertService: AlertService) {}
   
   showAlert(type: string) {
-    this.alertService.addAlert("Some message", type);
+    this.alertService.addAlert("This is " + type + " message", type);
   }
 }

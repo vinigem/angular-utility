@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
-import { AlertService } from './alert/alert.service'
+import { Component, OnInit } from '@angular/core';
+import { AlertService } from './alert/alert.service';
+import { TranslateService } from './translation/translate.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  private languages: Array<any> = [];
+  private currentLang: string;
   
-  constructor(private alertService: AlertService) {}
+  constructor(private alertService: AlertService, private translateService: TranslateService) {}
   
-  showAlert(type: string) {
-    this.alertService.addAlert("Some message", type);
+  ngOnInit(){
+    this.languages = this.translateService.getSupportedlanguages();
+    this.currentLang = this.translateService.getCurrentLanguage();
   }
+
+  changeLanguage(){
+    this.translateService.selectLanguage(this.currentLang);
+  }
+
 }

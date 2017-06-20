@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
@@ -21,7 +22,7 @@ import { GuardDemoComponent } from './demo/guard-demo.component';
 
 @NgModule({
   declarations: [AppComponent, AlertComponent, DialogComponent, TranslatePipe, AlertDemoComponent, GuardDemoComponent ],
-  imports: [ BrowserModule, HttpModule, JsonpModule, APP_ROUTES ],
+  imports: [ BrowserModule, HttpModule, JsonpModule, FormsModule, APP_ROUTES ],
   providers: [AlertService, RouteGuard, DialogService, TranslateService],
   bootstrap: [AppComponent]
 })
